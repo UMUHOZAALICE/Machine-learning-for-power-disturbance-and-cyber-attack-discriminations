@@ -1,20 +1,41 @@
-# Machine-learning-for-power-disturbance-and-cyber-attack-discriminations
-This project aims to classify system power disturbances such as NoEvents, Attack and or Natural disturbances using machine learning models. Random forest, logistic regression, and k-Nearest neighbor were trained. And by evaluating Models performance, the benchmark model was exposed.
+# Machine Learning for Power Disturbance and Cyber Attack Discrimination
 
-# Dataset
-The full dataset for power system disturbances is made from 15 different datasets which are randomly sampled at one percent (1 %) from each dataset. The datasets consist of 129 columns (128 features, 1 dependent variable). It means 29 measurements from each phasor measurement units (PMU) which measure electrical waves on electricity grid and there are 4 PMUs which result in 116 PMU measurement columns in total and 12 columns for control panel logs.
+## Project Overview
+The goal of this project is to classify system power disturbances into categories such as No Events, Attacks, and Natural disturbances using machine learning models. Three different models were trained for this purpose: Random Forest, Logistic Regression, and k-Nearest Neighbors (k-NN). The performance of these models was evaluated, and the benchmark model was identified.
 
-# Data analysis
-The dataset was prepared and processed whereby the datset were containing outliers around 8114 and the categorical data. The outlier were handled using Interquartile Range (IQR) while categorical data weere encoded using label encoder.
+## Dataset
+The full dataset consists of 15 different datasets, each sampled at one percent (1%). The combined dataset includes 129 columns (128 features and 1 dependent variable). The features include 29 measurements from each of the 4 Phasor Measurement Units (PMUs), totaling 116 PMU measurement columns, and 12 columns for control panel logs.
 
-# Modeling
-The task is classification problem, different classification model were used, including Random forest, Logidtic regression and K nearest neighbor. K fold cross validation technique were used to evaluate the performance of the model. K fold cross validation involves dividing the dataset into k subsets or folds of approximately equal size. In our case, 10 folds were used.
+## Data Analysis
+- **Outliers**: The dataset contained approximately 8114 outliers, which were handled using the Interquartile Range (IQR) method.
+- **Categorical Data**: Categorical data were encoded using label encoding.
 
-# Models Performance Evaluation 
-To evaluate the model performance different perfomrance metrics were used sincluding accuracy, precision_weighted, recall_weighted, f1_weighted. To derive the conckusion, F1 socre was used. The benchmark model came to be Random forest with high score compared to others with 64% score. 
+## Modeling
+This is a classification problem, and three models were used:
+1. Random Forest
+2. Logistic Regression
+3. k-Nearest Neighbors (k-NN)
 
-# Hyperparameter tuning
-After recealing the benchmark model, it was fine tuned to the best parameters combination using GridSearchCV and the nest paramenters for the model comes to be
-# Conclusion
+**K-fold Cross-Validation** was used to evaluate model performance, with 10 folds being used. Feature selection was also performed to enhance model efficiency by selecting the best features.
 
- 
+## Model Performance Evaluation
+Different performance metrics were used to evaluate the models, including:
+- Accuracy
+- Precision (weighted)
+- Recall (weighted)
+- F1 Score (weighted)
+
+The F1 Score was used to derive the final conclusion. The Random Forest model emerged as the benchmark model with a 64% F1 Score.
+
+## Hyperparameter Tuning
+The Random Forest model was further fine-tuned using GridSearchCV. The best parameters identified were:
+- max_depth: 3
+- max_leaf_nodes: 7
+- n_estimators: 10
+
+With these parameters, the model achieved an F1 Score of 61%.
+
+## Conclusion
+The Random Forest model is the best model for predicting and classifying cyber-attacks in power systems. Intelligent Electronic Devices (IEDs) like R1 through R4, which control relays and breakers, were found to be among the best features, providing relevant information from the original datasets.
+
+Overall, the selected benchmark model is expected to improve the accuracy and performance of Industrial Control Systems (ICS) in detecting various types of cyber-attacks.
